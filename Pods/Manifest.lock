@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (4.8.2)
+  - CoreStore (6.3.1)
+  - RxCocoa (4.2.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.2.0)
+  - SensingKit (0.5.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - CoreStore (~> 6.1)
+  - RxCocoa (~> 4.2.0)
+  - RxSwift (~> 4.2.0)
+  - SensingKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CoreStore
+    - RxCocoa
+    - RxSwift
+    - SensingKit
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CoreStore: 1ce7b77a95f0939d90b2d1e04e66a4a5bc1614d7
+  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  SensingKit: e4acb178652e6bcf23e564f2da111e5087b39e79
+
+PODFILE CHECKSUM: 2ff4763a223df6493baf6c9fb650d8a11563efc9
+
+COCOAPODS: 1.6.1
