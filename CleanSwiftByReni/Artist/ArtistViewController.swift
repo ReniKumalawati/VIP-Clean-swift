@@ -15,17 +15,27 @@ import CoreLocation
 import RxSwift
 
 protocol ArtistDisplayLogic: class
-{
-  func displaySomething(viewModel: Artist.Artist.ResponseArtist)
+{ 
+    func displaySomething(viewModel: Artist.Artist.ResponseArtist)
+    func displayTags(viewModel: Tags.TagsData.ResponseTags)
 }
 
-class ArtistViewController: UITableViewController, ArtistDisplayLogic, CLLocationManagerDelegate
+class ArtistViewController: UITableViewController, ArtistDisplayLogic, CLLocationManagerDelegate, UISearchResultsUpdating
 {
     var interactor: ArtistBusinessLogic?
     var router: (NSObjectProtocol & ArtistRoutingLogic & ArtistDataPassing)?
     var data = Artist.Artist.ResponseDataArtist()
+    var dataTags = Tags.TagsData.ResponseDataTag()
     var locationManager: CLLocationManager?
     var country: String = ""
+    var refreshControll = UIRefreshControl()
+    let searchController = UISearchController(searchResultsController: nil)
+    let manager = LocalNotificationManager()
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
@@ -38,8 +48,6 @@ class ArtistViewController: UITableViewController, ArtistDisplayLogic, CLLocatio
         super.init(coder: aDecoder)
         setup()
     }
-    
-    // MARK: Setup
     
     private func setup()
     {
@@ -69,28 +77,72 @@ class ArtistViewController: UITableViewController, ArtistDisplayLogic, CLLocatio
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        refreshControll.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControll.addTarget(self, action: #selector(refresh1), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControll)
         doSomething()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Candy"
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
+        manager.notifications = [Notification(id: "reminder-1", title: "Remember drink milk!", datetime: DateComponents(calendar: Calendar.current, year: 2019, month: 5, day: 20, hour: 14, minute: 46))]
+        manager.schedule()
+        
     }
+    
     
     func doSomething()
     {
+        manager.listScheduleNotifications()
         let request = Artist.Artist.Request(method: "geo.gettopartists", country: country)
         interactor?.findTopArtists(request: request)
+    }
+    
+    func findTopTag()
+    {
+        let request = Tags.TagsData.Request(method: "chart.gettoptags")
+        interactor?.findNetworkTopTags(request: request)
     }
     
     func displaySomething(viewModel: Artist.Artist.ResponseArtist)
     {
         data = viewModel.topartists
         tableView.reloadData()
+        refreshControll.endRefreshing()
+    }
+    
+    func displayTags(viewModel: Tags.TagsData.ResponseTags )
+    {
+        dataTags = viewModel.tags
+        tableView.reloadData()
+        refreshControll.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.artist.count
+        var count = 0
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            count = data.artist.count
+        case 1:
+            count = dataTags.tag.count
+        default:
+            break
+        }
+        return count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data.artist[indexPath.row].name
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            cell.textLabel?.text = data.artist[indexPath.row].name
+        case 1:
+            cell.textLabel?.text = dataTags.tag[indexPath.row].name
+        default:
+            break
+        }
         return cell
     }
     
@@ -120,10 +172,57 @@ class ArtistViewController: UITableViewController, ArtistDisplayLogic, CLLocatio
         fetchCityAndCountry(from: CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)) { city, country, error in
             guard let city = city, let country = country, error == nil else {return}
             self.country = country
+            print("negara: \(country)")
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
     }
+    
+    @objc func refresh1() {
+        print("refreshcoy")
+        if  Connectivity.isConnectedToInternet() {
+            print(" there is an conectivity ")
+            let request = Artist.Artist.Request(method: "geo.gettopartists", country: country)
+            interactor?.findNetworkTopArtists(request: request)
+        } else {
+            print("No conectivity found")
+            refreshControll.endRefreshing()
+        }
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scoope: String = "All") {
+        print(searchText)
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    
+    @IBAction func changeComponent(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            doSomething()
+        case 1:
+            findTopTag()
+        default:
+            break
+        }
+    
+    
+    }
+    
 }

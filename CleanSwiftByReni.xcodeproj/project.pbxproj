@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		257292AA7AB2DB82F236D021 /* Pods_CleanSwiftByReni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE1E86061293FAE0E32D73D /* Pods_CleanSwiftByReni.framework */; };
+		2A026EF5228E55C6005ECE49 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A026EF4228E55C6005ECE49 /* TagsModel.swift */; };
 		2A1E0BED22893FF9004834EC /* ArtistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BE722893FF9004834EC /* ArtistPresenter.swift */; };
 		2A1E0BEE22893FF9004834EC /* ArtistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BE822893FF9004834EC /* ArtistWorker.swift */; };
 		2A1E0BEF22893FF9004834EC /* ArtistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BE922893FF9004834EC /* ArtistRouter.swift */; };
 		2A1E0BF022893FF9004834EC /* ArtistModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BEA22893FF9004834EC /* ArtistModels.swift */; };
 		2A1E0BF122893FF9004834EC /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BEB22893FF9004834EC /* ArtistViewController.swift */; };
 		2A1E0BF222893FF9004834EC /* ArtistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E0BEC22893FF9004834EC /* ArtistInteractor.swift */; };
+		2A9BC600228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A9BC5FE228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodeld */; };
+		2A9BC604228A8D4C00E01ACC /* extExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9BC603228A8D4C00E01ACC /* extExt.swift */; };
 		2AD1136F2283F3760066B3FC /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD113692283F3760066B3FC /* DetailPresenter.swift */; };
 		2AD113702283F3760066B3FC /* DetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1136A2283F3760066B3FC /* DetailWorker.swift */; };
 		2AD113712283F3760066B3FC /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1136B2283F3760066B3FC /* DetailRouter.swift */; };
@@ -35,15 +38,22 @@
 		2AF18D5622829F7E0066A13C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF18D5522829F7E0066A13C /* Config.swift */; };
 		2AF18D592282A6C30066A13C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF18D582282A6C30066A13C /* Song.swift */; };
 		2AF18D5B2282A9E60066A13C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF18D5A2282A9E60066A13C /* Response.swift */; };
+		2AF7EDEF229249B3004B5FAE /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7EDEE229249B3004B5FAE /* Connectivity.swift */; };
+		2AF7EDF122925147004B5FAE /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7EDF022925147004B5FAE /* LocalNotificationManager.swift */; };
+		2AF7EDF322925220004B5FAE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7EDF222925220004B5FAE /* Notification.swift */; };
+		2AF962DB228CEC6500AC5AE4 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF962DA228CEC6500AC5AE4 /* Controller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A026EF4228E55C6005ECE49 /* TagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
 		2A1E0BE722893FF9004834EC /* ArtistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPresenter.swift; sourceTree = "<group>"; };
 		2A1E0BE822893FF9004834EC /* ArtistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistWorker.swift; sourceTree = "<group>"; };
 		2A1E0BE922893FF9004834EC /* ArtistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRouter.swift; sourceTree = "<group>"; };
 		2A1E0BEA22893FF9004834EC /* ArtistModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModels.swift; sourceTree = "<group>"; };
 		2A1E0BEB22893FF9004834EC /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		2A1E0BEC22893FF9004834EC /* ArtistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInteractor.swift; sourceTree = "<group>"; };
+		2A9BC5FF228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CleanSwiftByReni.xcdatamodel; sourceTree = "<group>"; };
+		2A9BC603228A8D4C00E01ACC /* extExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extExt.swift; sourceTree = "<group>"; };
 		2AD113692283F3760066B3FC /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		2AD1136A2283F3760066B3FC /* DetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWorker.swift; sourceTree = "<group>"; };
 		2AD1136B2283F3760066B3FC /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -67,6 +77,11 @@
 		2AF18D5522829F7E0066A13C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2AF18D582282A6C30066A13C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		2AF18D5A2282A9E60066A13C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		2AF7EDEE229249B3004B5FAE /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		2AF7EDF022925147004B5FAE /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		2AF7EDF222925220004B5FAE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		2AF962DA228CEC6500AC5AE4 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		2AF962DC228CF7B100AC5AE4 /* CleanSwiftByReni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanSwiftByReni.entitlements; sourceTree = "<group>"; };
 		488B4DB4BBDD93C512BDEEC2 /* Pods-CleanSwiftByReni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftByReni.release.xcconfig"; path = "Target Support Files/Pods-CleanSwiftByReni/Pods-CleanSwiftByReni.release.xcconfig"; sourceTree = "<group>"; };
 		4AE1E86061293FAE0E32D73D /* Pods_CleanSwiftByReni.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanSwiftByReni.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A90FC9E38A9C0D376DE116 /* Pods-CleanSwiftByReni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftByReni.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwiftByReni/Pods-CleanSwiftByReni.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +108,9 @@
 				2A1E0BEA22893FF9004834EC /* ArtistModels.swift */,
 				2A1E0BEB22893FF9004834EC /* ArtistViewController.swift */,
 				2A1E0BEC22893FF9004834EC /* ArtistInteractor.swift */,
+				2A9BC603228A8D4C00E01ACC /* extExt.swift */,
+				2A026EF4228E55C6005ECE49 /* TagsModel.swift */,
+				2AF7EDEE229249B3004B5FAE /* Connectivity.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -131,6 +149,8 @@
 		2AF18D28228280630066A13C /* CleanSwiftByReni */ = {
 			isa = PBXGroup;
 			children = (
+				2AF962DC228CF7B100AC5AE4 /* CleanSwiftByReni.entitlements */,
+				2AF962D5228CE95E00AC5AE4 /* Notification */,
 				2A1E0BE622893FBB004834EC /* Artist */,
 				2AD113682283F3300066B3FC /* Detail */,
 				2AF18D572282A6AE0066A13C /* Models */,
@@ -142,6 +162,7 @@
 				2AF18D30228280650066A13C /* Assets.xcassets */,
 				2AF18D32228280650066A13C /* LaunchScreen.storyboard */,
 				2AF18D35228280650066A13C /* Info.plist */,
+				2A9BC5FE228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodeld */,
 			);
 			path = CleanSwiftByReni;
 			sourceTree = "<group>";
@@ -175,6 +196,16 @@
 				2AF18D5A2282A9E60066A13C /* Response.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2AF962D5228CE95E00AC5AE4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2AF962DA228CEC6500AC5AE4 /* Controller.swift */,
+				2AF7EDF022925147004B5FAE /* LocalNotificationManager.swift */,
+				2AF7EDF222925220004B5FAE /* Notification.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		806C1184D680354ACC0BBD6E /* Pods */ = {
@@ -228,6 +259,14 @@
 				TargetAttributes = {
 					2AF18D25228280630066A13C = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -322,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9BC600228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodeld in Sources */,
 				2A1E0BEF22893FF9004834EC /* ArtistRouter.swift in Sources */,
 				2AF18D2C228280630066A13C /* ViewController.swift in Sources */,
 				2A1E0BF022893FF9004834EC /* ArtistModels.swift in Sources */,
@@ -330,9 +370,13 @@
 				2A1E0BEE22893FF9004834EC /* ArtistWorker.swift in Sources */,
 				2AD1137622840D5C0066B3FC /* MyCollectionViewCell.swift in Sources */,
 				2AF18D5622829F7E0066A13C /* Config.swift in Sources */,
+				2A9BC604228A8D4C00E01ACC /* extExt.swift in Sources */,
+				2AF7EDEF229249B3004B5FAE /* Connectivity.swift in Sources */,
 				2AF18D2A228280630066A13C /* AppDelegate.swift in Sources */,
+				2AF7EDF122925147004B5FAE /* LocalNotificationManager.swift in Sources */,
 				2AD113702283F3760066B3FC /* DetailWorker.swift in Sources */,
 				2AD113712283F3760066B3FC /* DetailRouter.swift in Sources */,
+				2AF962DB228CEC6500AC5AE4 /* Controller.swift in Sources */,
 				2AF18D592282A6C30066A13C /* Song.swift in Sources */,
 				2AD113732283F3760066B3FC /* DetailViewController.swift in Sources */,
 				2AF18D5122829D9A0066A13C /* DashboardModels.swift in Sources */,
@@ -342,9 +386,11 @@
 				2AF18D5B2282A9E60066A13C /* Response.swift in Sources */,
 				2AF18D4F22829D9A0066A13C /* DashboardWorker.swift in Sources */,
 				2AD113742283F3760066B3FC /* DetailInteractor.swift in Sources */,
+				2A026EF5228E55C6005ECE49 /* TagsModel.swift in Sources */,
 				2AF18D4E22829D9A0066A13C /* DashboardPresenter.swift in Sources */,
 				2A1E0BF122893FF9004834EC /* ArtistViewController.swift in Sources */,
 				2AF18D5322829D9A0066A13C /* DashboardInteractor.swift in Sources */,
+				2AF7EDF322925220004B5FAE /* Notification.swift in Sources */,
 				2AD1136F2283F3760066B3FC /* DetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,14 +538,18 @@
 			baseConfigurationReference = 87A90FC9E38A9C0D376DE116 /* Pods-CleanSwiftByReni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK9B469R72;
 				INFOPLIST_FILE = CleanSwiftByReni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mitrais.CleanSwiftByReni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -510,14 +560,18 @@
 			baseConfigurationReference = 488B4DB4BBDD93C512BDEEC2 /* Pods-CleanSwiftByReni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK9B469R72;
 				INFOPLIST_FILE = CleanSwiftByReni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mitrais.CleanSwiftByReni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -545,6 +599,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2A9BC5FE228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2A9BC5FF228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodel */,
+			);
+			currentVersion = 2A9BC5FF228A5C5D00E01ACC /* CleanSwiftByReni.xcdatamodel */;
+			path = CleanSwiftByReni.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2AF18D1E228280630066A13C /* Project object */;
 }

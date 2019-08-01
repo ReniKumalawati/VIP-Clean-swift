@@ -14,17 +14,23 @@ import UIKit
 
 protocol ArtistPresentationLogic
 {
-  func presentSomething(response: Artist.Artist.ResponseArtist)
+    func presentSomething(response: Artist.Artist.ResponseArtist)
+    func presentTags(response: Tags.TagsData.ResponseTags)
 }
 
 class ArtistPresenter: ArtistPresentationLogic
 {
-  weak var viewController: ArtistDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Artist.Artist.ResponseArtist)
-  {
-    viewController?.displaySomething(viewModel: response)
-  }
+    weak var viewController: ArtistDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentSomething(response: Artist.Artist.ResponseArtist)
+    {
+        viewController?.displaySomething(viewModel: response)
+    }
+    
+    func presentTags(response: Tags.TagsData.ResponseTags)
+    {
+        viewController?.displayTags(viewModel: response)
+    }
 }

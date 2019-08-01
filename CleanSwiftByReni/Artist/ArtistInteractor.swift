@@ -14,8 +14,10 @@ import UIKit
 
 protocol ArtistBusinessLogic
 {
-  func doSomething(request: Artist.Artist.Request)
-  func findTopArtists(request: Artist.Artist.Request)
+    func doSomething(request: Artist.Artist.Request)
+    func findTopArtists(request: Artist.Artist.Request)
+    func findNetworkTopArtists(request: Artist.Artist.Request)
+    func findNetworkTopTags(request: Tags.TagsData.Request)
 }
 
 protocol ArtistDataStore
@@ -26,17 +28,17 @@ protocol ArtistDataStore
 class ArtistInteractor: ArtistBusinessLogic, ArtistDataStore
 {
     
-  var presenter: ArtistPresentationLogic?
-  var worker: ArtistWorker?
-  var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Artist.Artist.Request)
-  {
-    worker = ArtistWorker()
-    worker?.doSomeWork()
-  }
+    var presenter: ArtistPresentationLogic?
+    var worker: ArtistWorker?
+    var name: String = ""
+    
+    // MARK: Do something
+    
+    func doSomething(request: Artist.Artist.Request)
+    {
+        worker = ArtistWorker()
+        worker?.doSomeWork()
+    }
     
     func findTopArtists(request: Artist.Artist.Request)
     {
@@ -44,6 +46,24 @@ class ArtistInteractor: ArtistBusinessLogic, ArtistDataStore
         worker?.findTopChart(request: request){ response in
             let response = response
             self.presenter?.presentSomething(response: response)
+        }
+    }
+    
+    func findNetworkTopArtists(request: Artist.Artist.Request)
+    {
+        worker = ArtistWorker()
+        worker?.findAllArtistfromNetwork(request: request){ response in
+            let response = response
+            self.presenter?.presentSomething(response: response)
+        }
+    }
+    
+    func findNetworkTopTags(request: Tags.TagsData.Request)
+    {
+        worker = ArtistWorker()
+        worker?.findAllTagsfromNetwork(request: request){ response in
+            let response = response
+            self.presenter?.presentTags(response: response)
         }
     }
 }

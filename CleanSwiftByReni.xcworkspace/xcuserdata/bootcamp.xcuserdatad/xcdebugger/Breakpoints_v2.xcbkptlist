@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanSwiftByReni/Artist/ArtistWorker.swift"
+            timestampString = "579767943.169234"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "findAllArtistfromDB(name:country:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of CleanSwiftByReni.ArtistWorker.findAllArtistfromDB(name: Swift.String, country: Swift.Optional&lt;Swift.String&gt;, callback: (CleanSwiftByReni.Artist.Artist.ResponseDataArtist, Swift.Array&lt;CleanSwiftByReni.ArtistEty&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CleanSwiftByReni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bootcamp/Documents/CleanSwiftByReni/CleanSwiftByReni/Artist/ArtistWorker.swift"
+                  timestampString = "579765341.073153"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of CleanSwiftByReni.ArtistWorker.findAllArtistfromDB(name: Swift.String, country: Swift.Optional&lt;Swift.String&gt;, callback: (CleanSwiftByReni.Artist.Artist.ResponseDataArtist, Swift.Array&lt;CleanSwiftByReni.ArtistEty&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CleanSwiftByReni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bootcamp/Documents/CleanSwiftByReni/CleanSwiftByReni/Artist/ArtistWorker.swift"
+                  timestampString = "579765341.075439"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CleanSwiftByReni.ArtistWorker.findAllArtistfromDB(name: Swift.String, country: Swift.Optional&lt;Swift.String&gt;, callback: (CleanSwiftByReni.Artist.Artist.ResponseDataArtist, Swift.Array&lt;CleanSwiftByReni.ArtistEty&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "CleanSwiftByReni"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bootcamp/Documents/CleanSwiftByReni/CleanSwiftByReni/Artist/ArtistWorker.swift"
+                  timestampString = "579765341.077477"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "379">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanSwiftByReni/Artist/ArtistWorker.swift"
+            timestampString = "579767943.169307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "findAllArtistfromDB(name:country:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

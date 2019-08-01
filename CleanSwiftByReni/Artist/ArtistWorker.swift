@@ -9,18 +9,98 @@
 //  you can apply clean architecture to your iOS and Mac projects,
 //  see http://clean-swift.com
 //
-
+import Foundation
 import UIKit
 import Alamofire
+import CoreData
 
 class ArtistWorker
 {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     func doSomeWork()
     {
     }
     
-    func findTopChart(request: Artist.Artist.Request, callback: @escaping (_ response: Artist.Artist.ResponseArtist) -> ())
-    {
+    func insertToDataBase( _ artistList: Artist.Artist.ResponseDataArtist, _ country: String ) {
+        let context = appDelegate.persistentContainer.viewContext
+        for (index, artist) in artistList.artist.enumerated() {
+            
+            findAllArtistfromDB(name: artist.name, country: country){ respon, datadb in
+                if respon.artist.count < 1 {
+                    guard let arts = NSEntityDescription.insertNewObject(forEntityName: "ArtistEty", into: context) as? ArtistEty else {
+                        print("Error : failed to create a new object")
+                        return
+                    }
+                    do {
+                        try arts.addProperty(name: artist.name, url: artist.url, position: index, country: country)
+                    } catch {
+                        print("Error")
+                        context.delete(arts)
+                    }
+                } else {
+                    for artisData in datadb {
+                        self.updateData(name: artisData.name!, country: artisData.country, position: Int(artisData.position))
+                    }
+                }
+            }
+            
+        }
+        if context.hasChanges {
+            do {
+                try context.save()
+                print("data successfully saved")
+            } catch {
+                print("coudnt save the data")
+            }
+            context.reset()
+        }
+    }
+    
+    func updateData(name:String = "", country:String? = "", position: Int) -> Bool {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "ArtistEty")
+        if name != "" && country! != "" {
+            let predicate = NSPredicate(format: "name = %@ AND country = %@", name, country!)
+            fetchReq.predicate = predicate
+        }
+        do {
+            let result = try context.fetch(fetchReq)
+            for dt in result as! [ArtistEty] {
+                dt.position = Int16(position)
+                try context.save()
+            }
+        } catch {
+            print("failed")
+            return false
+        }
+        return true
+    }
+    
+    func findAllArtistfromDB(name:String = "", country:String? = "", callback: @escaping (_ response: Artist.Artist.ResponseDataArtist, _ dataDb: [ArtistEty]) -> ()){
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "ArtistEty")
+        if name != "" && country! != "" {
+            let predicate = NSPredicate(format: "name = %@ AND country = %@", name, country!)
+            fetchReq.predicate = predicate
+        }
+        
+        
+        var data = Artist.Artist.ResponseDataArtist()
+        do {
+            let result = try context.fetch(fetchReq)
+            for dt in result as! [ArtistEty] {
+                let art = Artist.Artist.SingleArtist(name: dt.name!, url: dt.url!, listeners: "0", country: dt.country, position: Int(dt.position))
+                data.artist.append(art)
+            }
+            callback(data, result as! [ArtistEty])
+        } catch {
+            print("failed")
+            callback(data, [ArtistEty]())
+        }
+    }
+    
+    func findAllArtistfromNetwork (request: Artist.Artist.Request, callback: @escaping (_ response: Artist.Artist.ResponseArtist) -> ()) {
         let parameters: Parameters = [
             "method": request.method,
             "country": request.country,
@@ -29,7 +109,32 @@ class ArtistWorker
         ]
         Alamofire.request(Config().endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default ).responseJSON { data in
             let jsonDecode = try! JSONDecoder().decode(Artist.Artist.ResponseArtist.self, from: data.data!)
+            self.insertToDataBase(jsonDecode.topartists, request.country)
             callback(jsonDecode)
         }
     }
+    
+    func findTopChart(request: Artist.Artist.Request, callback: @escaping (_ response: Artist.Artist.ResponseArtist) -> ())
+    {
+        findAllArtistfromDB() { response, datadb in
+            let dt = Artist.Artist.ResponseArtist(topartists: response)
+            callback(dt)
+        }
+        
+    }
+    
+    func findAllTagsfromNetwork (request: Tags.TagsData.Request, callback: @escaping (_ response: Tags.TagsData.ResponseTags) -> ()) {
+        let parameters: Parameters = [
+            "method": request.method,
+            "api_key": Config().apiKey,
+            "format": "json"
+        ]
+        Alamofire.request(Config().endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default ).responseJSON { data in
+            let jsonDecode = try! JSONDecoder().decode(Tags.TagsData.ResponseTags.self, from: data.data!)
+//            self.insertToDataBase(jsonDecode.topartists, request.country)
+            callback(jsonDecode)
+        }
+    }
+    
+    
 }

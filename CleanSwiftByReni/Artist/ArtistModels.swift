@@ -38,10 +38,15 @@ enum Artist
         var name: String
         var url: String
         var listeners: String
-        init(name: String, url: String, listeners: String) {
+        var country: String?
+        var position: Int? = 0
+        
+        init(name: String, url: String, listeners: String, country: String?, position: Int?) {
             self.name = name
             self.url = url
             self.listeners = listeners
+            self.country = country
+            self.position = position
         }
     }
     
